@@ -1,0 +1,20 @@
+#include <bits/stdc++.h> 
+double findNthRootOfM(int n, int m) {
+    double low=1;
+    double high=m;
+    while(high-low>=1e-7){
+        double mid=(low+high)/2.0;
+        if(pow(mid,n)==m){
+             return mid;
+        }
+        else if(pow(mid,n)<m){
+            low=mid;
+        }
+        else{
+            high=mid;
+        }
+    }
+    return high;
+    //time complexity-> O(logN*log(M*10^digits))
+    //space complexity-> O(1)
+}
